@@ -184,7 +184,7 @@
             this.nudEpochs.Size = new System.Drawing.Size(136, 22);
             this.nudEpochs.TabIndex = 7;
             this.nudEpochs.Value = new decimal(new int[] {
-            500,
+            1000,
             0,
             0,
             0});
