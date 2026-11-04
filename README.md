@@ -207,7 +207,7 @@ insurance-prediction/
 ├── InputN.cs
 ├── insurance.csv
 ├── InsuranceModel.cs
-├── Sample
+|   ├── Sample
 │   ├── ScaledSet
 │   ├── CurveHandler
 │   ├── DataLoader
