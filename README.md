@@ -68,7 +68,7 @@ Input (5)  ->  Hidden (H, sigmoid)  ->  Output (1, sigmoid)
   - Output delta: `delta_out = output * (1 - output) * e`
   - Hidden error: `err_h = (sum of delta_out * weight_h_to_out) * h * (1 - h)`
   - Updates: `w += learningRate * activation * delta` for both layers and the biases. Hidden errors are computed **before** any weights change.
-**Library modifications:** <!--TODO: list any edits to the provided classes (for example learning rates changed from `const` to fields, seeded weight initialisation), or write "used as-is".-->
+**Library modifications:** "`used as-is`"
 
 ---
  
@@ -190,7 +190,33 @@ The custom neural network did a lot better than the baseline. We were able to ma
 ## Project Structure
 
 ```
-
+insurance-prediction/
+├── Properties
+│   ├── AssemblyInfo.cs
+│   ├── Resources.Designer.cs
+│   ├── Resources.resx
+│   ├── Settings.Designer.cs
+│   └── Settings.settings
+├── BackNeural.cs
+├── Form1.cs
+├── Form1.Designer.cs
+├── Form1.resx
+├── HealthcareInsuranceFinal.csproj
+├── HealthcareInsuranceFinal.slnx
+├── HiddenN.cs
+├── InputN.cs
+├── insurance.csv
+├── InsuranceModel.cs
+├── Sample
+│   ├── ScaledSet
+│   ├── CurveHandler
+│   ├── DataLoader
+│   ├── MinMaxScaler
+│   ├── Trainer
+│   ├── PipelineResult
+│   └── Pipeline
+├── OuputN.cs
+└── Program.cs
 
 ```
 
