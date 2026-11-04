@@ -8,8 +8,8 @@ namespace Backprop
 		private INeuron [] ineuron;//approximatelty 3072
 		private HNeuron [] hneuron;// approx 64
 		private ONeuron [] oneuron;//approx 10
-		private const double LRPOUT =0.2;//learning rate for the the ouptput layer
-		private const double LRPIN = 0.15;// learning rate for the input layer
+		private double LRPOUT =0.2;//learning rate for the the ouptput layer
+		private double LRPIN = 0.15;// learning rate for the input layer
 		private double [] errorComponent; // approx 10;
 		private double [] errorDerivative;
 		private double [] desiredout;
@@ -34,7 +34,20 @@ namespace Backprop
 			desiredout=new double[output];
 			createNeurons(ineuron.Length,hneuron.Length,oneuron.Length);
 		}
-		public void createNeurons(int i,int h,int o)
+
+        public double LearningRateOut
+        {
+            get { return LRPOUT; }
+            set { LRPOUT = value; }
+        }
+
+        public double LearningRateIn
+        {
+            get { return LRPIN; }
+            set { LRPIN = value; }
+        }
+
+        public void createNeurons(int i,int h,int o)
 		{
 			for (int x=0;x<i;x++)
 			{
@@ -122,14 +135,14 @@ namespace Backprop
 			for(int x=0;x<hneuron.Length;x++)//calculates the errors of every neuron in the 2 layer
 				hneuron[x].calculateErr(errorDerivative);
 			for(int x=0;x<hneuron.Length;x++)//change in the weights in the 2 to ouput
-				hneuron[x].setWeight(LRPOUT,errorDerivative);
-			for(int x=0;x<ineuron.Length;x++)//change the weights in the input to 2
+                hneuron[x].setWeight(LRPOUT, errorDerivative);
+            for (int x=0;x<ineuron.Length;x++)//change the weights in the input to 2
 			{
 				for (int y=0;y<hneuron.Length;y++)
 				{
-					ineuron[x].setWeight(y,hneuron[y].getErr(),LRPIN);
-				
-				}
+                    ineuron[x].setWeight(y, hneuron[y].getErr(), LRPIN);
+
+                }
 			}
 			for (int x=0;x<oneuron.Length;x++)//change in output neuron bias
 				oneuron[x].changeBias(LRPOUT,errorDerivative);
@@ -137,7 +150,8 @@ namespace Backprop
 				hneuron[x].changeBias(LRPIN);
 
 		}
-		public void run()
+
+        public void run()
 		{
 			this.calculateHA();
 			this.calculateOA();

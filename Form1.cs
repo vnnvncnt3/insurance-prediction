@@ -133,7 +133,7 @@ namespace HealthcareInsuranceFinal
             }
             else
             {
-                SetStatus("Done. You can now use the Predict panel.");
+                SetStatus("Done. You can now use Predict.");
                 lblResult.Text = "Predicted charges: (press Predict)";
             }
         }
