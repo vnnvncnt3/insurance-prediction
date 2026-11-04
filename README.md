@@ -123,7 +123,7 @@ epoch    train_mse    test_mse
 ```
  
 <div align="center">
-  <img src="assets/loss_curve.png" alt="Loss curve" width="600" />
+  <img src="assets/loss-curve.png" alt="Loss curve" width="600" />
 </div>
  
 ---
